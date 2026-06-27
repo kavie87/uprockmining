@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+pkill -f uprock-mining || true
+pkill -f "Xvfb :98" || true
+pkill -f x11vnc || true
+pkill -f websockify || true
+rm -f /tmp/.X98-lock
+
+systemctl start uprock
+
+echo "VNC stopped. Headless UpRock service restarted."
